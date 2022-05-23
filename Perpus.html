@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            text-align: center;
+            /* border-collapse: collapse; */
+            padding: 10px;
+
+        }
+    </style>
+</head>
+<body>
+    
+    <table>
+        <thead>
+            <tr>
+                <td>
+                    <h1>Filter</h1>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="filterCat">Category</label>
+                    <select id="filterCat" onchange="renderData()">
+                        <option value="All">All</option>
+                        <option value="Horror">Horror</option>
+                        <option value="Science">Science</option>
+                        <option value="Fiction">Fiction</option>
+                    </select>
+                    </td>
+            </tr>
+
+            <tr>
+                <td>
+                <input type="text" id="filterNamaBuku" placeholder="Filter Nama Buku" oninput="renderData()">
+            </td>
+            </tr>
+            
+        </thead>
+    </table>
+
+    <h1> 
+        Daftar Buku
+    </h1>
+    <br>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>
+                No
+                </th>
+                <th>
+                Book Name
+                </th>
+                <th>
+                    Author
+                    </th>
+                
+                <th>
+                Price / Week
+                </th>
+                <th>
+                    Total Page
+                    </th>
+                <th>
+                Category
+                </th>
+                <th>
+                    Status
+                    </th>
+                <th>
+                    Action
+                    </th>
+            </tr>
+        </thead>
+        <tbody id="produkBody">
+        
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>
+
+                </td>
+                <td>
+                    <input type="text" id="txtBookName" placeholder="Book Name">
+                </td>
+                <td>
+                    <input type="text" id="txtAuthor" placeholder="Author">
+   
+                </td>
+                <td>
+                </td>
+                <td>
+                    <input type="number" id="txtTotalPage"  placeholder="Total Page">
+                </td>
+                <td>
+                    <select id="ddCategory">
+                        <option value="Horror">Horror</option>
+                        <option value="Science">Science</option>
+                        <option value="Fiction">Fiction</option>
+                    </select>
+                </td>
+                <td>
+                    <select id="ddStatus">
+                        <option value="Available">Available</option>
+                        <option value="In Cart">In Cart</option>
+                        <option value="Rent">Rent</option>
+
+                    </select>            
+                </td>
+                <td>
+                    <button onclick="Add()">Add</button>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <h1> 
+
+    </h1>
+    <br>
+    <h1>
+        Cart
+    </h1>
+
+
+    <table>
+        <thead>
+            <tr>
+                <td >
+                    <input type="text" placeholder="Nama Peminjam" id="txtNamaPeminjam">
+                </td>
+            </tr>
+            <tr>
+                <tr>
+                    <th>
+                    No
+                    </th>
+                    <th>
+                    Book Name
+                    </th>
+                    <th>
+                    Author
+                    </th>
+                    <th>
+                    Price / Week
+                    </th>
+                    <th>
+                        Total Page
+                        </th>
+                    <th>
+                    Category
+                    </th>
+                   
+                    <th>
+                        Action
+                    </th>
+                </tr>
+            </tr>
+        </thead>
+        <tbody id="CartBody">
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>
+                  <h3>  Total Harga : 
+                </h3> 
+                </td>
+                <td>
+                    <h3 id="labelHarga">  Rp.0 
+                    </h3>
+                    
+                    
+                </td>
+                <td >
+                    <button id="btnCheckout" onclick="renderCheckOut()">Checkout</button>
+ 
+                 </td>
+            </tr>
+            <tr id="trCheckOut" >
+               
+           
+
+            </tr>
+        </tfoot>
+    </table>
+
+
+        <h1>
+            Daftar Peminjam
+        </h1>
+
+        <table>
+            <thead>
+                <tr>
+                    <tr>
+                        <th>
+                        No
+                        </th>
+                        <th>
+                            Nama Peminjam
+                            </th>
+                        <th>
+                        Book Name
+                        </th>
+                        <th>
+                        Author
+                        </th>
+                      
+                        <th>
+                            Total Page
+                            </th>
+                            <th>
+                                Due Date
+                                </th>
+                                <th>
+                                    Category
+                                    </th>
+                        <th>
+                            Action
+                        </th>
+                    </tr>
+                </tr>
+            </thead>
+            <tbody id="RentBody">
+            
+            </tbody>
+        </table>
+
+<script src="./perpus.js"></script>
+</body>
+</html>
+
+
+<!-- 
+soal 
+
+buat market 
+ada table product
+name, price, category, stock
+
+bisa add, delete, add to Cart
+
+table cart 
+name, price,category, qty
+
+bisa delete
+ada total harga dari semua yg ada di cart 
+
+saat masuk ke cart prompt brp banyak stock yg mau dimasukan ke cart
+stock di table product dikurang dengan product yg dimasukan ke Cart
+
+apa bila cart didelete maka stock + dengan qty cart 
+ -->
+
+
+
+<!-- 
+
+ buat  setTimeOut pada Pembayaran
+ tampilkan waktu pembayaran
+ nominal dibayar
+ confirm = hapus cart pindah ke daftar peminjam
+ cancel = tidak jadi check out. cancel setTimeOut
+ apa bila sedang checkout tidak bisa menambah Cart
+ apa bila timeout maka cart dihapus, status kembali available, 
+ alert waktu pembayaran anda sudah habis -->
